@@ -1,4 +1,4 @@
-import NavLink from '@/lib/widgets/NavLink';
+import NavLink from '@/components/widgets/NavLink';
 import { routerName } from '@/lib/router/router';
 
 export type RoutingProps = {
