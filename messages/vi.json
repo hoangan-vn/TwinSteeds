@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "title": "Double A"
+    },
+    "home": {
+        "home": "Trang chủ",
+        "title": "",
+        "description": "Developed by Hoang An"
+    },
+    "LocaleSwitcher": {
+        "vi": "Vietnamese",
+        "en": "English",
+        "label": "Sprache"
+    },
+    "error": {
+        "title": "404 Not Found"
+    },
+    "not-found": {
+        "title": "OPPS..., PAGE NOT FOUND!",
+        "action": "Go back home",
+        "content": "Sorry, we couldn’t find the page you’re looking for."
+    },
+    "common": {
+        "loading": "Loading..."
+    },
+    "endline": ""
+}
