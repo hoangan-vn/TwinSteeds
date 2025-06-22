@@ -32,8 +32,8 @@ const times = localFont({
   ]
 });
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
@@ -63,13 +63,11 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${times.className} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
