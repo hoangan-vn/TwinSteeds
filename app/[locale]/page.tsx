@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
-import { ModeToggle } from '@/components/mode-toggle';
-import { LocaleToggle } from '@/components/locale-toggle';
+import { Layout } from '@/components/layout/Layout';
+import { TestLayout } from '@/components/test-layout';
 import { TestZustand } from '@/components/test-zustand';
 import { TestResponsive } from '@/components/test-responsive';
 
@@ -12,21 +12,19 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations('home');
 
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center gap-8 p-4'>
-      <div className='text-center space-y-4'>
-        <h1 className='text-4xl font-bold'>{t('title') || 'Welcome'}</h1>
-        <p className='text-lg text-muted-foreground'>{t('description')}</p>
+    <Layout showBanner={true}>
+      <div className='container mx-auto px-4 py-8 space-y-8'>
+        <div className='text-center space-y-4'>
+          <h1 className='text-4xl font-bold'>{t('title') || 'Welcome'}</h1>
+          <p className='text-lg text-muted-foreground'>{t('description')}</p>
+        </div>
+
+        <div className='text-sm text-muted-foreground text-center'>Current locale: {locale}</div>
+
+        <TestLayout />
+        <TestResponsive />
+        <TestZustand />
       </div>
-
-      <div className='flex items-center gap-4'>
-        <ModeToggle />
-        <LocaleToggle />
-      </div>
-
-      <div className='text-sm text-muted-foreground'>Current locale: {locale}</div>
-
-      <TestResponsive />
-      <TestZustand />
-    </div>
+    </Layout>
   );
 }

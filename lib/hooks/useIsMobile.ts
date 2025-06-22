@@ -140,7 +140,7 @@ export const useIsMobile = (): ResponsiveState => {
       window.removeEventListener('resize', debouncedUpdate);
       window.removeEventListener('orientationchange', debouncedUpdate);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedUpdate]);
 
   return state;
