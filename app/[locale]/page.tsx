@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { ModeToggle } from '@/components/mode-toggle';
 import { LocaleToggle } from '@/components/locale-toggle';
 import { TestZustand } from '@/components/test-zustand';
+import { TestResponsive } from '@/components/test-responsive';
 
 export default async function IndexPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -24,6 +25,7 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
 
       <div className='text-sm text-muted-foreground'>Current locale: {locale}</div>
 
+      <TestResponsive />
       <TestZustand />
     </div>
   );
