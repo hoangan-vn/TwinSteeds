@@ -10,6 +10,16 @@ interface BannerProps {
   date: string;
 }
 
+/**
+ * Displays a full-width banner section with a background image and customizable title, invitation, timeline, and date.
+ *
+ * The banner height adapts to the available layout height and overlays the provided text content centered over the background image.
+ *
+ * @param props.title - The main heading text displayed prominently in the banner
+ * @param props.invitation - The invitation message shown below the title
+ * @param props.timeline - The timeline or schedule information displayed in a bordered container
+ * @param props.date - The date information displayed alongside the timeline
+ */
 export function Banner(props: BannerProps) {
   const { availableHeight } = useLayoutStore();
 

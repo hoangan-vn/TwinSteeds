@@ -9,6 +9,17 @@ interface InvitationHeaderProps {
   message: string;
 }
 
+/**
+ * Renders a styled invitation header card displaying the names of the bride and groom, their fathers, a message, and the event location.
+ *
+ * @param groomName - The name of the groom
+ * @param brideName - The name of the bride
+ * @param groomFather - The name of the groom's father
+ * @param brideFather - The name of the bride's father
+ * @param location - The location of the event
+ * @param message - A message to display at the top of the invitation
+ * @returns A React element representing the invitation header card
+ */
 export function InvitationHeader({
   groomName,
   brideName,

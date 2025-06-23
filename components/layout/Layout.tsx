@@ -12,6 +12,16 @@ interface LayoutProps {
   banner?: ReactNode;
 }
 
+/**
+ * Provides a flexible page layout with optional header and banner sections.
+ *
+ * Renders a container that synchronizes with the viewport, optionally displaying a header and a custom banner based on the provided props. The main content is rendered within a flexibly sized main section.
+ *
+ * @param children - The main content to display within the layout
+ * @param banner - Optional React node to display as a banner when `showBanner` is true
+ * @param hideHeader - If true, displays the header section
+ * @param showBanner - If true, displays the banner section
+ */
 export function Layout({ children, banner, hideHeader = false, showBanner = false }: LayoutProps) {
   // Sync layout with viewport
   useLayoutSync();

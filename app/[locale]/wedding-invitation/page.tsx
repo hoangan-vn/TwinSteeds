@@ -4,6 +4,14 @@ import { Layout } from '@/components/layout/Layout';
 import { Banner } from '@/components/layout/wedding-invitation/Banner';
 import { InvitationHeader } from '@/components/layout/wedding-invitation';
 
+/**
+ * Renders the wedding invitation page with localized content based on the provided locale.
+ *
+ * Awaits the locale parameter, sets the request locale, retrieves translations for the "wedding-invitation" namespace, and displays a layout with a banner, description, current locale, and an invitation header.
+ *
+ * @param params - A promise resolving to an object containing the locale string
+ * @returns The JSX layout for the wedding invitation page with localized text
+ */
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
