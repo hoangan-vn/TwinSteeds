@@ -32,11 +32,13 @@ export function Banner(props: BannerProps) {
       </div>
       {/* Content */}
       <div className='relative z-10 h-full flex items-center justify-center'>
-        <div className='text-center space-y-6 px-4 h-full flex flex-col justify-around'>
-          <h1 className='text-4xl md:text-6xl font-bold'>{props.title}</h1>
+        <div className='text-center space-y-6 px-2 sm:px-4 h-full flex flex-col justify-around'>
+          <h1 className='text-2xl sm:text-4xl md:text-6xl font-bold'>{props.title}</h1>
           <div>
-            <p className='text-xl md:text-2xl opacity-90 max-w-2xl mx-auto'>{props.invitation}</p>
-            <div className='flex flex-col gap-4 justify-center border-y-2'>
+            <p className='text-base sm:text-xl md:text-2xl opacity-90 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto'>
+              {props.invitation}
+            </p>
+            <div className='flex flex-col gap-2 sm:gap-4 justify-center border-y-2 py-2 sm:py-4'>
               <p className=''>{props.timeline}</p>
               <p className=''>{props.date}</p>
             </div>
