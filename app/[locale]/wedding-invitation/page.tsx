@@ -11,6 +11,7 @@ import {
   InvitationSchedule
 } from '@/components/layout/wedding-invitation';
 import { Footer } from '@/components/layout/wedding-invitation/Footer';
+import PlayFloatingButton from '@/components/layout/wedding-invitation/PlayFloatingButton';
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -32,6 +33,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <InvitationForm />
         <Footer imageSrc={''}></Footer>
       </div>
+      <PlayFloatingButton />
     </Layout>
   );
 }
