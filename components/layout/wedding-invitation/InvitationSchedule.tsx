@@ -12,9 +12,9 @@ export async function InvitationSchedule() {
         <h2>{uppercase(t('title'))}</h2>
         <p>{uppercase(t('heading-1'))}</p>
         <div className='w-full flex justify-center items-center'>
-          <Image src='/images/1Q8A0036.jpg' alt='' width={200} height={500} />
-          <Image className='mx-4' src='/images/1Q8A0036.jpg' alt='' width={250} height={450} />
-          <Image src='/images/1Q8A0036.jpg' alt='' width={200} height={500} />
+          <Image src='/images/1Q8A9710.jpg' alt='' width={200} height={500} />
+          <Image className='mx-4' src='/images/1Q8A9332.jpg' alt='' width={250} height={450} />
+          <Image src='/images/1Q8A8877.jpg' alt='' width={200} height={500} />
         </div>
         <p>{uppercase(t('heading-2'))}</p>
       </div>

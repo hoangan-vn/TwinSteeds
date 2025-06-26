@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
 import React from 'react';
+import { toast } from 'sonner';
 
 interface FormData {
   name: string;
@@ -17,9 +18,23 @@ interface FormData {
 export function InvitationForm() {
   const { register, handleSubmit, setValue } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form submitted:', data);
-    // Thêm logic gửi API hoặc xử lý dữ liệu ở đây
+  const onSubmit = async (data: FormData) => {
+    try {
+      const res = await fetch('/api/wedding-invitation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      if (result.success) {
+        toast('Gửi xác nhận thành công!', { description: 'Cảm ơn bạn đã xác nhận tham dự.' });
+      } else {
+        toast('Có lỗi xảy ra', { description: result.message });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast('Có lỗi xảy ra khi gửi xác nhận!');
+    }
   };
 
   return (

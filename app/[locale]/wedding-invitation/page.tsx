@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Album />
         <InvitationTimeLine />
         <InvitationForm />
-        <Footer imageSrc={''}></Footer>
+        <Footer />
       </div>
       <PlayFloatingButton />
     </Layout>

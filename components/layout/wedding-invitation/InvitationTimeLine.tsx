@@ -44,7 +44,7 @@ export function InvitationTimeLine() {
     <div
       className='relative w-full min-h-[320px] flex flex-col items-center justify-center py-10'
       style={{
-        backgroundImage: `url('/images/1Q8A9563.jpg')`,
+        backgroundImage: `url('/images/1Q8A9254.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}

@@ -5,15 +5,15 @@
     "wedding-invitation": {
         "title": "Hoàng An - Kiều Anh",
         "invitation": "Thư mời tiệc cưới",
-        "timeline": "Chủ nhật - 11h00'",
+        "timeline": "Chủ nhật - 11h00",
         "date": "13 . 07 . 2025"
     },
     "invitation-header": {
-        "heading-1": "Yêu nhau là chuyện cả đời",
-        "heading-2": "Yêu người vừa ý, cưới người mình thương",
+        "heading-1": "Tưởng là say nắng nhất thời",
+        "heading-2": "Ai ngờ thương hết một đời thanh xuân",
         "groom": {
             "title": "Nhà trai",
-            "label": "Chú rễ",
+            "label": "Chú rể",
             "name": "Nguyễn Hoàng An",
             "father": "Nguyễn Văn Tâm",
             "mother": "Mai Thị Sum"
