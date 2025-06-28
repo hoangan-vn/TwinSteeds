@@ -2,7 +2,7 @@ import React from 'react';
 
 const timelineSteps = [
   {
-    time: '17:30',
+    time: '11:00',
     label: ['ĐÓN TIẾP', 'KHÁCH MỜI'],
     icon: (
       <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
@@ -11,7 +11,7 @@ const timelineSteps = [
     )
   },
   {
-    time: '18:00',
+    time: '12:00',
     label: ['BẮT ĐẦU', 'LỄ THÀNH HÔN'],
     icon: (
       <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
@@ -20,20 +20,11 @@ const timelineSteps = [
     )
   },
   {
-    time: '18:30',
+    time: '12:20',
     label: ['CHÀO MỪNG', 'KHAI TIỆC'],
     icon: (
       <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
         <polygon points='16,6 26,26 6,26' stroke='white' strokeWidth='2' fill='none' />
-      </svg>
-    )
-  },
-  {
-    time: '20:00',
-    label: ['MINIGAME', 'VÀ KHIÊU VŨ'],
-    icon: (
-      <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
-        <path d='M8 24 Q16 8 24 24' stroke='white' strokeWidth='2' fill='none' />
       </svg>
     )
   }

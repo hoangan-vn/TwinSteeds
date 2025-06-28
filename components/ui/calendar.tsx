@@ -1,16 +1,18 @@
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';
+import CoupleHeartIcon from '../icons/couple-heart';
 
 interface CalendarProps {
   year: number;
-  month: number; // 1-12
-  day: number; // ngày được highlight
+  month: number;
+  day: number;
+  days?: string[];
+  months?: string[];
 }
 
-const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const monthNames = [
+const defaultDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const defaultMonths = [
   'January',
   'February',
   'March',
@@ -25,14 +27,13 @@ const monthNames = [
   'December'
 ];
 
-const Calendar = ({ year, month, day }: CalendarProps) => {
-  // month: 1-12
+const Calendar = ({ year, month, day, days, months }: CalendarProps) => {
+  const weekDays = days || defaultDays;
+  const monthList = months || defaultMonths;
   const firstDay = new Date(year, month - 1, 1);
   const lastDay = new Date(year, month, 0);
   const daysInMonth = lastDay.getDate();
   const startingDay = firstDay.getDay();
-
-  // Tạo mảng các ngày, bắt đầu từ chủ nhật đầu tiên của lưới
   const calendarDays: (number | null)[] = [];
   for (let i = 0; i < startingDay; i++) {
     calendarDays.push(null);
@@ -51,12 +52,12 @@ const Calendar = ({ year, month, day }: CalendarProps) => {
       <div className='absolute right-6 top-2 text-[64px] font-bold text-black/20 select-none leading-none'>{year}</div>
       {/* Tháng và ngày góc trái trên */}
       <div className='absolute left-6 top-6 text-xl font-light italic text-black/80 select-none'>
-        {days[new Date(year, month - 1, day).getDay()]} {day}
+        {monthList[month - 1]}
       </div>
       {/* Thanh tiêu đề ngày trong tuần */}
       <div className='grid grid-cols-7 gap-0 text-center mt-16 mb-2'>
-        {days.map((d) => (
-          <div key={d} className='bg-black text-white py-1 font-semibold rounded-sm text-sm'>
+        {weekDays.map((d) => (
+          <div key={d} className='bg-black text-white py-1 px-3 min-w-[56px] font-semibold rounded-sm text-sm'>
             {d}
           </div>
         ))}
@@ -72,20 +73,7 @@ const Calendar = ({ year, month, day }: CalendarProps) => {
               {d || ''}
               {d === day && (
                 <span className='absolute -bottom-3 left-1/2 -translate-x-1/2'>
-                  <svg
-                    className='w-16 h-16 text-red-500'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-                    />
-                  </svg>
+                  <CoupleHeartIcon width={70} />
                 </span>
               )}
             </div>

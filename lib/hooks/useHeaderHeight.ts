@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useCallback } from 'react';
 import { useLayoutStore } from '@/lib/features/layout/LayoutStore';
 

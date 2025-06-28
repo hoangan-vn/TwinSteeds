@@ -1,13 +1,16 @@
+import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
-const MAP_URL = 'https://www.google.com/maps/search/?api=1&query=16+Tôn+Đản,+Lộc+Thọ,+Nha+Trang,+Khánh+Hòa';
+const MAP_URL =
+  'https://www.google.com/maps/dir//Trung+T%C3%A2m+H%E1%BB%99i+Ngh%E1%BB%8B+%26+Ti%C3%AA%CC%A3c+C%C6%B0%C6%A1%CC%81i+Luxury+Palace,+P7+c%E1%BB%A7,+171+%C4%90.+Nguy%E1%BB%85n+Th%C3%A1i+S%C6%A1n,+G%C3%B2+V%E1%BA%A5p,+H%E1%BB%93+Ch%C3%AD+Minh+70000,+Vi%E1%BB%87t+Nam/@10.8275156,106.6484502,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x317528f0ca02fed3:0xf31aedb8b09c47da!2m2!1d106.6896502!2d10.827434!3e0?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D';
 
-export function InvitationLocated() {
+export async function InvitationLocated() {
+  const t = await getTranslations('invitation-located');
   return (
     <div className='w-full text-center py-6'>
-      <div className='text-gray-500 text-base mb-1'>Địa điểm:</div>
-      <div className='font-bold text-xl md:text-2xl uppercase text-gray-700'>MAPLE HOTEL & APARTMENT</div>
-      <div className='italic text-gray-500 text-base mb-4'>16 Tôn Đản, Lộc Thọ, Nha Trang, Khánh Hòa</div>
+      <div className='text-gray-500 text-base mb-1'>{t('title')}</div>
+      <div className='font-bold text-xl md:text-2xl uppercase text-gray-700'>{t('located')}</div>
+      <div className='italic text-gray-500 text-base mb-4'>{t('address')}</div>
       <a
         href={MAP_URL}
         target='_blank'
