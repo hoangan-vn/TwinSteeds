@@ -1,6 +1,11 @@
 {
     "metadata": {
-        "title": "Double A"
+        "title": "Twin Steeds",
+        "description": "Website của gia đình Hoàng An và Kiều Anh. Tại đây chúng tôi chia sẻ về portfolio cũng như những kinh nghiệm và đời sống hằng ngày của chúng tôi đến với quý vị.",
+        "wedding-invitation": {
+            "title": "Hoàng An - Kiều Anh",
+            "description": "Thư mời tiệc cưới của Hoàng An và Kiều Anh"
+        }
     },
     "wedding-invitation": {
         "title": "Hoàng An - Kiều Anh",
@@ -84,13 +89,12 @@
     },
     "home": {
         "home": "Trang chủ",
-        "title": "Chào mừng đến với Double A",
+        "title": "Chào mừng đến với TwinSteeds",
         "description": "Developed by Hoang An"
     },
     "LocaleSwitcher": {
         "vi": "Vietnamese",
-        "en": "English",
-        "label": "Sprache"
+        "en": "English"
     },
     "error": {
         "title": "404 Not Found"

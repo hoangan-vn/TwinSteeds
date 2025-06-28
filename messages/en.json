@@ -1,107 +1,111 @@
 {
     "metadata": {
-        "title": "Double A"
+        "title": "Twin Steeds",
+        "description": "Website of the family of Hoang An and Kieu Anh. Here we share our portfolio as well as our daily life experiences with you.",
+        "wedding-invitation": {
+            "title": "Hoang An - Kieu Anh",
+            "description": "Wedding invitation of Hoang An and Kieu Anh"
+        }
     },
     "wedding-invitation": {
-        "title": "Hoàng An - Kiều Anh",
-        "invitation": "Thư mời tiệc cưới",
-        "timeline": "Chủ nhật - 11h00",
+        "title": "Hoang An - Kieu Anh",
+        "invitation": "Wedding invitation",
+        "timeline": "Sunday - 11:00 AM",
         "date": "13 . 07 . 2025"
     },
     "invitation-header": {
-        "heading-1": "Tưởng là say nắng nhất thời",
-        "heading-2": "Ai ngờ thương hết một đời thanh xuân",
+        "heading-1": "Thought it was just a passing crush",
+        "heading-2": "Who knew it would last a lifetime of youth",
         "groom": {
-            "title": "Nhà trai",
-            "label": "Chú rể",
-            "name": "Nguyễn Hoàng An",
-            "father": "Nguyễn Văn Tâm",
-            "mother": "Mai Thị Sum"
+            "title": "Groom's family",
+            "label": "Groom",
+            "name": "Nguyen Hoang An",
+            "father": "Nguyen Van Tam",
+            "mother": "Mai Thi Sum"
         },
         "bride": {
-            "title": "Nhà gái",
-            "label": "Cô dâu",
-            "name": "Hoàng Trương Kiều Anh",
-            "father": "Hoàng Đình Thản",
-            "mother": "Trương Đỗ Quyên"
+            "title": "Bride's family",
+            "label": "Bride",
+            "name": "Hoang Truong Kieu Anh",
+            "father": "Hoang Dinh Than",
+            "mother": "Truong Do Quyen"
         }
     },
     "invitation-schedule": {
-        "title": "Thư mời",
-        "heading-1": "tham dự lễ cưới của Hoàng An & Kiều Anh",
-        "heading-2": "Tiệc mừng lễ Vu Quy",
-        "at": "Vào lúc",
-        "time": "11h00 | CHỦ NHẬT",
+        "title": "Invitation",
+        "heading-1": "attend the wedding of Hoang An & Kieu Anh",
+        "heading-2": "Wedding reception celebration",
+        "at": "At",
+        "time": "11:00 AM | SUNDAY",
         "day": "13",
-        "month": "Tháng 07",
+        "month": "July",
         "year": "2025",
-        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)",
+        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)",
         "days": [
-            "Chủ nhật",
-            "Thứ hai",
-            "Thứ ba",
-            "Thứ tư",
-            "Thứ năm",
-            "Thứ sáu",
-            "Thứ bảy"
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
         ],
         "months": [
-            "Tháng 1",
-            "Tháng 2",
-            "Tháng 3",
-            "Tháng 4",
-            "Tháng 5",
-            "Tháng 6",
-            "Tháng 7",
-            "Tháng 8",
-            "Tháng 9",
-            "Tháng 10",
-            "Tháng 11",
-            "Tháng 12"
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
         ]
     },
     "invitation-located": {
-        "title": "Địa điểm",
+        "title": "Location",
         "located": "Luxury Palace",
-        "address": "171D Nguyễn Thái Sơn, Phường 1, Quận Gò Vấp, TP. Hồ Chí Minh",
-        "at": "Vào lúc",
-        "time": "11h00 | CHỦ NHẬT",
+        "address": "171D Nguyen Thai Son, Ward 1, Go Vap District, Ho Chi Minh City",
+        "at": "At",
+        "time": "11:00 AM | SUNDAY",
         "day": "13",
-        "month": "Tháng 07",
+        "month": "July",
         "year": "2025",
-        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)"
+        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)"
     },
     "invitation-timeline": {
-        "title": "Thư mời",
-        "heading-1": "tham dự lễ cưới của Hoàng An & Kiều Anh",
-        "heading-2": "Tiệc mừng lễ Vu Quy",
-        "at": "Vào lúc",
-        "time": "11h00 | CHỦ NHẬT",
+        "title": "Invitation",
+        "heading-1": "attend the wedding of Hoang An & Kieu Anh",
+        "heading-2": "Wedding reception celebration",
+        "at": "At",
+        "time": "11:00 AM | SUNDAY",
         "day": "13",
-        "month": "Tháng 07",
+        "month": "July",
         "year": "2025",
-        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)"
+        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)"
     },
     "home": {
-        "home": "Trang chủ",
-        "title": "Chào mừng đến với Double A",
+        "home": "Home",
+        "title": "Welcome to TwinSteeds",
         "description": "Developed by Hoang An"
     },
     "LocaleSwitcher": {
         "vi": "Vietnamese",
-        "en": "English",
-        "label": "Sprache"
+        "en": "English"
     },
     "error": {
         "title": "404 Not Found"
     },
     "not-found": {
-        "title": "Oops! Trang không tồn tại",
-        "action": "Về trang chủ",
-        "content": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Có thể trang này đã bị di chuyển hoặc xóa."
+        "title": "Oops! Page not found",
+        "action": "Back to home",
+        "content": "Sorry, we couldn't find the page you're looking for. It may have been moved or deleted."
     },
     "common": {
-        "loading": "Đang tải..."
+        "loading": "Loading..."
     },
     "endline": ""
 }
