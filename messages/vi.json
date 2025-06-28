@@ -74,7 +74,8 @@
         "day": "13",
         "month": "Tháng 07",
         "year": "2025",
-        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)"
+        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)",
+        "direction-button": "CHỈ ĐƯỜNG"
     },
     "invitation-timeline": {
         "title": "Thư mời",
@@ -85,7 +86,84 @@
         "day": "13",
         "month": "Tháng 07",
         "year": "2025",
-        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)"
+        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)",
+        "timeline": {
+            "title": "LỊCH TRÌNH",
+            "steps": {
+                "welcome": {
+                    "time": "11:00",
+                    "label": [
+                        "ĐÓN TIẾP",
+                        "KHÁCH MỜI"
+                    ]
+                },
+                "ceremony": {
+                    "time": "12:00",
+                    "label": [
+                        "BẮT ĐẦU",
+                        "LỄ THÀNH HÔN"
+                    ]
+                },
+                "reception": {
+                    "time": "12:20",
+                    "label": [
+                        "CHÀO MỪNG",
+                        "KHAI TIỆC"
+                    ]
+                }
+            }
+        }
+    },
+    "invitation-form": {
+        "confirmation-text": "Hãy xác nhận sự có mặt của bạn trước ngày 01.07.2025 để chúng mình chuẩn bị đón tiếp một cách chu đáo nhất.",
+        "sincerely": "Trân trọng!",
+        "name-placeholder": "Tên của bạn",
+        "message-placeholder": "Gửi lời nhắn đến cô dâu chú rể",
+        "attendance-placeholder": "Bạn sẽ đến chứ?",
+        "attendance-yes": "Có",
+        "attendance-no": "Không",
+        "companion-placeholder": "Bạn tham dự cùng ai?",
+        "companion-alone": "Một mình",
+        "companion-family": "Gia đình",
+        "companion-friends": "Bạn bè",
+        "guest-type-placeholder": "Bạn là khách mời của ai?",
+        "guest-type-bride": "Nhà gái",
+        "guest-type-groom": "Nhà trai",
+        "guest-type-both": "Cả hai",
+        "submit-button": "GỬI LỜI NHẮN & XÁC NHẬN",
+        "success-toast": "Gửi xác nhận thành công!",
+        "success-description": "Cảm ơn bạn đã xác nhận tham dự.",
+        "error-toast": "Có lỗi xảy ra",
+        "error-description": "Có lỗi xảy ra khi gửi xác nhận!"
+    },
+    "footer": {
+        "thank-you": "Trân trọng cảm ơn quý khách",
+        "welcome-message": "Chúng tôi rất hân hạnh được đón tiếp quý vị trong ngày trọng đại của mình!"
+    },
+    "header": {
+        "logo": "Double A",
+        "nav": {
+            "home": "Trang chủ",
+            "about": "Giới thiệu",
+            "services": "Dịch vụ",
+            "contact": "Liên hệ"
+        }
+    },
+    "theme": {
+        "toggle": "Chuyển đổi giao diện",
+        "light": "Sáng",
+        "dark": "Tối",
+        "system": "Hệ thống"
+    },
+    "loading": {
+        "component": "Đang tải thành phần...",
+        "content": "Đang tải nội dung...",
+        "page": "Đang tải trang...",
+        "initializing": "Đang khởi tạo ứng dụng...",
+        "progress": "hoàn thành",
+        "image-failed": "Không thể tải hình ảnh",
+        "data-failed": "Không thể tải dữ liệu",
+        "more-items": "Đang tải thêm mục..."
     },
     "home": {
         "home": "Trang chủ",
@@ -93,8 +171,9 @@
         "description": "Developed by Hoang An"
     },
     "LocaleSwitcher": {
-        "vi": "Vietnamese",
-        "en": "English"
+        "vi": "Tiếng Việt",
+        "en": "English",
+        "switch": "Chuyển đổi ngôn ngữ"
     },
     "error": {
         "title": "404 Not Found"
@@ -102,7 +181,16 @@
     "not-found": {
         "title": "Oops! Trang không tồn tại",
         "action": "Về trang chủ",
-        "content": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Có thể trang này đã bị di chuyển hoặc xóa."
+        "content": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Có thể trang này đã bị di chuyển hoặc xóa.",
+        "go-back": "Quay lại",
+        "debug": {
+            "error-code": "Mã lỗi: 404",
+            "locale": "Ngôn ngữ",
+            "route": "Đường dẫn",
+            "params": "Tham số",
+            "available": "Có sẵn",
+            "not-available": "Không có sẵn"
+        }
     },
     "common": {
         "loading": "Đang tải..."

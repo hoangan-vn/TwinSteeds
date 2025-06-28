@@ -20,7 +20,7 @@ export async function InvitationLocated() {
         <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
           <path d='M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 10 6a2.5 2.5 0 0 1 0 5.5z' />
         </svg>
-        CHỈ ĐƯỜNG
+        {t('direction-button')}
       </a>
     </div>
   );

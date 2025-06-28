@@ -74,7 +74,8 @@
         "day": "13",
         "month": "July",
         "year": "2025",
-        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)"
+        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)",
+        "direction-button": "GET DIRECTIONS"
     },
     "invitation-timeline": {
         "title": "Invitation",
@@ -85,7 +86,84 @@
         "day": "13",
         "month": "July",
         "year": "2025",
-        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)"
+        "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)",
+        "timeline": {
+            "title": "TIMELINE",
+            "steps": {
+                "welcome": {
+                    "time": "11:00",
+                    "label": [
+                        "WELCOME",
+                        "GUESTS"
+                    ]
+                },
+                "ceremony": {
+                    "time": "12:00",
+                    "label": [
+                        "WEDDING",
+                        "CEREMONY"
+                    ]
+                },
+                "reception": {
+                    "time": "12:20",
+                    "label": [
+                        "WELCOME",
+                        "RECEPTION"
+                    ]
+                }
+            }
+        }
+    },
+    "invitation-form": {
+        "confirmation-text": "Please confirm your attendance before 01.07.2025 so we can prepare to welcome you in the most thoughtful way.",
+        "sincerely": "Sincerely!",
+        "name-placeholder": "Your name",
+        "message-placeholder": "Send a message to the bride and groom",
+        "attendance-placeholder": "Will you attend?",
+        "attendance-yes": "Yes",
+        "attendance-no": "No",
+        "companion-placeholder": "Who will you attend with?",
+        "companion-alone": "Alone",
+        "companion-family": "Family",
+        "companion-friends": "Friends",
+        "guest-type-placeholder": "Whose guest are you?",
+        "guest-type-bride": "Bride's family",
+        "guest-type-groom": "Groom's family",
+        "guest-type-both": "Both families",
+        "submit-button": "SEND MESSAGE & CONFIRM",
+        "success-toast": "Confirmation sent successfully!",
+        "success-description": "Thank you for confirming your attendance.",
+        "error-toast": "An error occurred",
+        "error-description": "An error occurred while sending confirmation!"
+    },
+    "footer": {
+        "thank-you": "We sincerely thank you",
+        "welcome-message": "We are honored to welcome you on our special day!"
+    },
+    "header": {
+        "logo": "Double A",
+        "nav": {
+            "home": "Home",
+            "about": "About",
+            "services": "Services",
+            "contact": "Contact"
+        }
+    },
+    "theme": {
+        "toggle": "Toggle theme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "loading": {
+        "component": "Loading component...",
+        "content": "Loading content...",
+        "page": "Loading page...",
+        "initializing": "Initializing application...",
+        "progress": "complete",
+        "image-failed": "Failed to load image",
+        "data-failed": "Failed to load data",
+        "more-items": "Loading more items..."
     },
     "home": {
         "home": "Home",
@@ -94,7 +172,8 @@
     },
     "LocaleSwitcher": {
         "vi": "Vietnamese",
-        "en": "English"
+        "en": "English",
+        "switch": "Switch language"
     },
     "error": {
         "title": "404 Not Found"
@@ -102,7 +181,16 @@
     "not-found": {
         "title": "Oops! Page not found",
         "action": "Back to home",
-        "content": "Sorry, we couldn't find the page you're looking for. It may have been moved or deleted."
+        "content": "Sorry, we couldn't find the page you're looking for. It may have been moved or deleted.",
+        "go-back": "Go Back",
+        "debug": {
+            "error-code": "Error Code: 404",
+            "locale": "Locale",
+            "route": "Route",
+            "params": "Params",
+            "available": "Available",
+            "not-available": "Not available"
+        }
     },
     "common": {
         "loading": "Loading..."

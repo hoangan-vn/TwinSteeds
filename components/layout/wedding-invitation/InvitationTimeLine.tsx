@@ -1,36 +1,39 @@
 import React from 'react';
-
-const timelineSteps = [
-  {
-    time: '11:00',
-    label: ['ĐÓN TIẾP', 'KHÁCH MỜI'],
-    icon: (
-      <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
-        <circle cx='16' cy='16' r='12' stroke='white' strokeWidth='2' fill='none' />
-      </svg>
-    )
-  },
-  {
-    time: '12:00',
-    label: ['BẮT ĐẦU', 'LỄ THÀNH HÔN'],
-    icon: (
-      <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
-        <rect x='8' y='8' width='16' height='16' stroke='white' strokeWidth='2' fill='none' />
-      </svg>
-    )
-  },
-  {
-    time: '12:20',
-    label: ['CHÀO MỪNG', 'KHAI TIỆC'],
-    icon: (
-      <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
-        <polygon points='16,6 26,26 6,26' stroke='white' strokeWidth='2' fill='none' />
-      </svg>
-    )
-  }
-];
+import { useTranslations } from 'next-intl';
 
 export function InvitationTimeLine() {
+  const t = useTranslations('invitation-timeline.timeline');
+
+  const timelineSteps = [
+    {
+      time: t('steps.welcome.time'),
+      label: [t('steps.welcome.label.0'), t('steps.welcome.label.1')],
+      icon: (
+        <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
+          <circle cx='16' cy='16' r='12' stroke='white' strokeWidth='2' fill='none' />
+        </svg>
+      )
+    },
+    {
+      time: t('steps.ceremony.time'),
+      label: [t('steps.ceremony.label.0'), t('steps.ceremony.label.1')],
+      icon: (
+        <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
+          <rect x='8' y='8' width='16' height='16' stroke='white' strokeWidth='2' fill='none' />
+        </svg>
+      )
+    },
+    {
+      time: t('steps.reception.time'),
+      label: [t('steps.reception.label.0'), t('steps.reception.label.1')],
+      icon: (
+        <svg width='32' height='32' fill='none' viewBox='0 0 32 32'>
+          <polygon points='16,6 26,26 6,26' stroke='white' strokeWidth='2' fill='none' />
+        </svg>
+      )
+    }
+  ];
+
   return (
     <div
       className='relative w-full min-h-[320px] flex flex-col items-center justify-center py-10'
@@ -43,7 +46,7 @@ export function InvitationTimeLine() {
       <div className='absolute inset-0 bg-black/40' />
       <div className='relative z-10 flex flex-col items-center w-full'>
         <h2 className='text-white text-3xl md:text-4xl font-serif font-bold mb-10 tracking-widest drop-shadow-lg'>
-          TIMELINE
+          {t('title')}
         </h2>
         <div className='w-full max-w-4xl flex flex-col items-center'>
           {/* Timeline line */}

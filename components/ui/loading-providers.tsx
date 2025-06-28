@@ -15,6 +15,7 @@ import {
 } from './loading-skeleton';
 import { ProgressBar } from './loading';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 // Component loading wrapper
 export const ComponentLoadingWrapper = ({
@@ -87,6 +88,7 @@ export const LazyLoadingWrapper = ({
   className?: string;
 }) => {
   const { lazyLoading } = useLoading(loadingKey);
+  const t = useTranslations('loading');
 
   if (fallback) {
     return (
@@ -99,7 +101,7 @@ export const LazyLoadingWrapper = ({
   return (
     <LoadingWrapper
       loading={lazyLoading.isLoading}
-      fallback={<InlineLoading message='Loading content...' />}
+      fallback={<InlineLoading message={t('content')} />}
       className={className}
     >
       {children}
@@ -164,13 +166,16 @@ export const ProgressWrapper = ({
   className?: string;
 }) => {
   const { progress, isLoading } = useLoading(loadingKey);
+  const t = useTranslations('loading');
 
   return (
     <div className={className}>
       {showProgress && isLoading && (
         <div className='mb-4'>
           <ProgressBar progress={progress.progress} />
-          <p className='text-sm text-muted-foreground mt-2'>{Math.round(progress.progress)}% complete</p>
+          <p className='text-sm text-muted-foreground mt-2'>
+            {Math.round(progress.progress)}% {t('progress')}
+          </p>
         </div>
       )}
       {children}
@@ -181,11 +186,12 @@ export const ProgressWrapper = ({
 // Global loading provider
 export const GlobalLoadingProvider = ({ children }: { children: ReactNode }) => {
   const { isAppLoading, isPageLoading } = useGlobalLoading();
+  const t = useTranslations('loading');
 
   return (
     <>
-      {isAppLoading && <FullScreenLoading message='Initializing application...' />}
-      {isPageLoading && <PageLoading message='Loading page...' />}
+      {isAppLoading && <FullScreenLoading message={t('initializing')} />}
+      {isPageLoading && <PageLoading message={t('page')} />}
       {children}
     </>
   );
