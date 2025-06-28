@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        times: ['var(--font-times)', 'Times New Roman', 'serif'],
+        dancing: ['var(--font-dancing-script)', 'cursive']
+      },
       colors: {
         // Primary color palette
         primary: {
@@ -315,6 +319,7 @@ const config: Config = {
       }
     }
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('tailwindcss-animated')]
 };
 

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useLayoutStore } from '@/lib/features/layout/LayoutStore';
+import { cn } from '@/lib';
 
 interface BannerProps {
   title: string;
@@ -15,7 +16,7 @@ export function Banner(props: BannerProps) {
 
   return (
     <section
-      className={`w-full text-[#a19585] relative overflow-hidden`}
+      className={`w-full text-amber-950 relative overflow-hidden`}
       style={{
         height: `${availableHeight}px`,
         minHeight: `${availableHeight}px`
@@ -27,16 +28,19 @@ export function Banner(props: BannerProps) {
           alt=''
           layout='fill'
           objectFit='cover'
-          className='absolute inset-0 bg-dots-pattern'
+          className='absolute inset-0 bg-dots-pattern opacity-80'
         />
       </div>
+      <div className='absolute inset-0 w-full h-full bg-lime-200 opacity-50'></div>
       {/* Content */}
       <div className='relative z-10 h-full flex items-center justify-center'>
-        <div className='text-center space-y-6 px-4 h-full flex flex-col justify-around'>
-          <h1 className='text-4xl md:text-6xl font-bold'>{props.title}</h1>
-          <div>
-            <p className='text-xl md:text-2xl opacity-90 max-w-2xl mx-auto'>{props.invitation}</p>
-            <div className='flex flex-col gap-4 justify-center border-y-2'>
+        <div className='text-center space-y-6 px-2 sm:px-4 h-full flex flex-col justify-around py-12'>
+          <h1 className={cn('text-6xl font-bold')}>{props.title}</h1>
+          <div className='pt-4'>
+            <p className='relative text-5xl opacity-90 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto mb-3'>
+              {props.invitation}
+            </p>
+            <div className='flex flex-col gap-2 sm:gap-4 justify-center border-y-2 py-2 sm:py-4 text-2xl border-amber-950'>
               <p className=''>{props.timeline}</p>
               <p className=''>{props.date}</p>
             </div>

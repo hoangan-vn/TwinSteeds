@@ -5,8 +5,82 @@
     "wedding-invitation": {
         "title": "Hoàng An - Kiều Anh",
         "invitation": "Thư mời tiệc cưới",
-        "timeline": "Chủ nhật - 11h00'",
+        "timeline": "Chủ nhật - 11h00",
         "date": "13 . 07 . 2025"
+    },
+    "invitation-header": {
+        "heading-1": "Tưởng là say nắng nhất thời",
+        "heading-2": "Ai ngờ thương hết một đời thanh xuân",
+        "groom": {
+            "title": "Nhà trai",
+            "label": "Chú rể",
+            "name": "Nguyễn Hoàng An",
+            "father": "Nguyễn Văn Tâm",
+            "mother": "Mai Thị Sum"
+        },
+        "bride": {
+            "title": "Nhà gái",
+            "label": "Cô dâu",
+            "name": "Hoàng Trương Kiều Anh",
+            "father": "Hoàng Đình Thản",
+            "mother": "Trương Đỗ Quyên"
+        }
+    },
+    "invitation-schedule": {
+        "title": "Thư mời",
+        "heading-1": "tham dự lễ cưới của Hoàng An & Kiều Anh",
+        "heading-2": "Tiệc mừng lễ Vu Quy",
+        "at": "Vào lúc",
+        "time": "11h00 | CHỦ NHẬT",
+        "day": "13",
+        "month": "Tháng 07",
+        "year": "2025",
+        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)",
+        "days": [
+            "Chủ nhật",
+            "Thứ hai",
+            "Thứ ba",
+            "Thứ tư",
+            "Thứ năm",
+            "Thứ sáu",
+            "Thứ bảy"
+        ],
+        "months": [
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12"
+        ]
+    },
+    "invitation-located": {
+        "title": "Địa điểm",
+        "located": "Luxury Palace",
+        "address": "171D Nguyễn Thái Sơn, Phường 1, Quận Gò Vấp, TP. Hồ Chí Minh",
+        "at": "Vào lúc",
+        "time": "11h00 | CHỦ NHẬT",
+        "day": "13",
+        "month": "Tháng 07",
+        "year": "2025",
+        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)"
+    },
+    "invitation-timeline": {
+        "title": "Thư mời",
+        "heading-1": "tham dự lễ cưới của Hoàng An & Kiều Anh",
+        "heading-2": "Tiệc mừng lễ Vu Quy",
+        "at": "Vào lúc",
+        "time": "11h00 | CHỦ NHẬT",
+        "day": "13",
+        "month": "Tháng 07",
+        "year": "2025",
+        "lunar-date": "Tức ngày 19 Tháng Sáu (Quý Mùi) Âm Lịch (Ất Tỵ)"
     },
     "home": {
         "home": "Trang chủ",

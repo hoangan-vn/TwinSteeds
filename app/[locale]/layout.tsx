@@ -1,36 +1,11 @@
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import localFont from 'next/font/local';
+import { times } from '@/lib/fonts';
 
 import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
-
-const times = localFont({
-  src: [
-    {
-      path: '../../public/fonts/times.ttf',
-      weight: '400',
-      style: 'normal'
-    },
-    {
-      path: '../../public/fonts/times_bd.ttf',
-      weight: '700',
-      style: 'normal'
-    },
-    {
-      path: '../../public/fonts/times_i.ttf',
-      weight: '400',
-      style: 'italic'
-    },
-    {
-      path: '../../public/fonts/times_bi.ttf',
-      weight: '700',
-      style: 'italic'
-    }
-  ]
-});
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

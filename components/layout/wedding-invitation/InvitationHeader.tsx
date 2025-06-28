@@ -1,53 +1,52 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import Image from 'next/image';
+import { uppercase } from '@/lib/utils/string-utils';
+import { getTranslations } from 'next-intl/server';
+import HeartIcon from '@/components/icons/heart';
+import { dancingScript } from '@/lib/fonts';
+import { cn } from '@/lib';
 
-interface InvitationHeaderProps {
-  groomName: string;
-  brideName: string;
-  groomFather: string;
-  brideFather: string;
-  location: string;
-  message: string;
-}
+export async function InvitationHeader() {
+  const t = await getTranslations('invitation-header');
+  const groom = await getTranslations('invitation-header.groom');
+  const bride = await getTranslations('invitation-header.bride');
 
-export function InvitationHeader({
-  groomName,
-  brideName,
-  groomFather,
-  brideFather,
-  location,
-  message
-}: InvitationHeaderProps) {
   return (
-    <Card className='w-full max-w-md mx-auto bg-gray-50 text-center border-none shadow-md'>
-      <CardHeader className='p-4'>
-        <p className='text-sm italic text-gray-600'>{message}</p>
-      </CardHeader>
-      <CardContent className='p-6'>
-        <div className='flex justify-center mb-4'>
-          <div className='w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center'>
-            <svg
-              className='w-8 h-8 text-pink-500'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-              />
-            </svg>
+    <div className='w-full bg-gray-50 text-center border-none shadow-md'>
+      <div className={cn('p-2 sm:p-4 flex flex-col justify-center items-center', `${dancingScript.className}`)}>
+        <p className='text-2xl italic text-gray-600'>{t('heading-1')}</p>
+        <p className='text-2xl italic text-gray-600'>{t('heading-2')}</p>
+      </div>
+      <div className='p-4 sm:p-6 w-full'>
+        <div className='flex justify-around items-center'>
+          <div className='flex flex-col justify-around items-center font-bold'>
+            <h2 className='text-2xl mb-2'>{uppercase(groom('title'))}</h2>
+            <p className='text-xl'>{uppercase(groom('father'))}</p>
+            <p className='text-xl'>{uppercase(groom('mother'))}</p>
+          </div>
+          <div className='flex flex-col justify-center items-center font-bold'>
+            <h2 className='text-2xl mb-2'>{uppercase(bride('title'))}</h2>
+            <p className='text-xl'>{uppercase(bride('father'))}</p>
+            <p className='text-xl'>{uppercase(bride('mother'))}</p>
           </div>
         </div>
-        <p className='text-lg font-semibold'>{groomFather}</p>
-        <p className='text-xl font-bold'>{groomName}</p>
-        <p className='text-lg font-semibold'>{brideFather}</p>
-        <p className='text-xl font-bold'>{brideName}</p>
-        <p className='mt-4 text-sm text-gray-600'>{location}</p>
-      </CardContent>
-    </Card>
+        <div className='flex justify-center mb-2 sm:mb-4'>
+          <HeartIcon width={100} className='text-red-600' />
+        </div>
+
+        <div className='flex justify-around items-center w-full'>
+          <div className='flex flex-col justify-around items-center font-bold'>
+            <h2 className='text-2xl mb-2'>{uppercase(groom('label'))}</h2>
+            <p className='text-xl'>{uppercase(groom('name'))}</p>
+            <Image src='/images/1Q8A9421.jpg' alt='' width={200} height={500} />
+          </div>
+          <div className='flex flex-col justify-center items-center font-bold'>
+            <h2 className='text-2xl mb-2'>{uppercase(bride('label'))}</h2>
+            <p className='text-xl'>{uppercase(bride('name'))}</p>
+            <Image src='/images/1Q8A9427.jpg' alt='' width={200} height={500} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
