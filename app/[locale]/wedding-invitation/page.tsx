@@ -13,6 +13,21 @@ import {
 import { Footer } from '@/components/layout/wedding-invitation/Footer';
 import PlayFloatingButton from '@/components/layout/wedding-invitation/PlayFloatingButton';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata.wedding-invitation' });
+
+  return {
+    title: `${t('title')}`,
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website'
+    }
+  };
+}
+
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
