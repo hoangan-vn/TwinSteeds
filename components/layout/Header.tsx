@@ -4,10 +4,12 @@ import { useHeaderHeight } from '@/lib/hooks/useHeaderHeight';
 import { useLayoutStore } from '@/lib/features/layout/LayoutStore';
 import { ModeToggle } from '@/components/mode-toggle';
 import { LocaleToggle } from '@/components/locale-toggle';
+import { useTranslations } from 'next-intl';
 
 export function Header() {
   const { headerRef } = useHeaderHeight();
   const { isHeaderVisible, isHeaderSticky } = useLayoutStore();
+  const t = useTranslations('header');
 
   return (
     <header
@@ -25,22 +27,22 @@ export function Header() {
       <div className='container mx-auto px-4 h-full flex items-center justify-between'>
         {/* Logo */}
         <div className='flex items-center space-x-4'>
-          <h1 className='text-xl font-bold'>Double A</h1>
+          <h1 className='text-xl font-bold'>{t('logo')}</h1>
         </div>
 
         {/* Navigation */}
         <nav className='hidden md:flex items-center space-x-6'>
           <a href='#' className='hover:text-primary transition-colors'>
-            Home
+            {t('nav.home')}
           </a>
           <a href='#' className='hover:text-primary transition-colors'>
-            About
+            {t('nav.about')}
           </a>
           <a href='#' className='hover:text-primary transition-colors'>
-            Services
+            {t('nav.services')}
           </a>
           <a href='#' className='hover:text-primary transition-colors'>
-            Contact
+            {t('nav.contact')}
           </a>
         </nav>
 

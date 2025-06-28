@@ -30,7 +30,7 @@ export default async function NotFound({ params }: { params?: Promise<LocalePara
             <Button asChild>
               <Link href='/'>{t('action')}</Link>
             </Button>
-            <BackButton>Go Back</BackButton>
+            <BackButton>{t('go-back')}</BackButton>
           </div>
         </div>
       </div>

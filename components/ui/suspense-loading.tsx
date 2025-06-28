@@ -5,6 +5,7 @@ import { useLazyLoading, useLoadingError } from '@/lib/features/loading/useLoadi
 import { LazyLoadingWrapper } from './loading-providers';
 import { PageLoading, InlineLoading, Spinner } from './loading';
 import { CardSkeleton, TextSkeleton, ListSkeleton } from './loading-skeleton';
+import { useTranslations } from 'next-intl';
 
 // Types
 interface LazyComponentProps<T extends Record<string, unknown> = Record<string, unknown>> {
@@ -29,14 +30,17 @@ interface LazyRouteProps<T extends Record<string, unknown> = Record<string, unkn
 }
 
 // Default fallback components
-const DefaultSuspenseFallback = () => (
-  <div className='min-h-[400px] flex items-center justify-center'>
-    <div className='flex flex-col items-center space-y-4'>
-      <Spinner size='lg' />
-      <p className='text-muted-foreground'>Loading component...</p>
+const DefaultSuspenseFallback = () => {
+  const t = useTranslations('loading');
+  return (
+    <div className='min-h-[400px] flex items-center justify-center'>
+      <div className='flex flex-col items-center space-y-4'>
+        <Spinner size='lg' />
+        <p className='text-muted-foreground'>{t('component')}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const DefaultLazyFallback = () => (
   <div className='p-4 border rounded-md'>
@@ -44,11 +48,14 @@ const DefaultLazyFallback = () => (
   </div>
 );
 
-const DefaultInlineFallback = () => (
-  <div className='flex items-center justify-center py-8'>
-    <InlineLoading message='Loading...' />
-  </div>
-);
+const DefaultInlineFallback = () => {
+  const t = useTranslations('common');
+  return (
+    <div className='flex items-center justify-center py-8'>
+      <InlineLoading message={t('loading')} />
+    </div>
+  );
+};
 
 // Lazy Component with Loading State
 export function LazyComponent<T extends Record<string, unknown> = Record<string, unknown>>({
@@ -102,14 +109,13 @@ export function LazyRoute<T extends Record<string, unknown> = Record<string, unk
 }
 
 // Page Suspense Wrapper
-export function PageSuspense({
-  children,
-  fallback = <PageLoading message='Loading page...' />,
-  loadingKey = 'page-suspense'
-}: SuspenseWrapperProps) {
+export function PageSuspense({ children, fallback, loadingKey = 'page-suspense' }: SuspenseWrapperProps) {
+  const t = useTranslations('loading');
+  const defaultFallback = <PageLoading message={t('page')} />;
+
   return (
     <LazyLoadingWrapper loadingKey={loadingKey}>
-      <Suspense fallback={fallback}>{children}</Suspense>
+      <Suspense fallback={fallback || defaultFallback}>{children}</Suspense>
     </LazyLoadingWrapper>
   );
 }
@@ -144,6 +150,7 @@ export function LazyImage({
   const { setLoading } = useLazyLoading(loadingKey);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [error, setError] = useState(false);
+  const t = useTranslations('loading');
 
   useEffect(() => {
     setLoading(true);
@@ -164,7 +171,7 @@ export function LazyImage({
   if (error) {
     return (
       <div className={`flex items-center justify-center bg-muted rounded-md ${className}`}>
-        <p className='text-sm text-muted-foreground'>Failed to load image</p>
+        <p className='text-sm text-muted-foreground'>{t('image-failed')}</p>
       </div>
     );
   }
@@ -195,6 +202,7 @@ export function LazyData<T>({
   const { setError } = useLoadingError(loadingKey);
   const [data, setData] = useState<T | null>(null);
   const [error, setErrorState] = useState<Error | null>(null);
+  const t = useTranslations('loading');
 
   useEffect(() => {
     setLoading(true);
@@ -217,7 +225,7 @@ export function LazyData<T>({
       <>{errorFallback}</>
     ) : (
       <div className='p-4 border border-destructive/50 rounded-md bg-destructive/10'>
-        <p className='text-sm text-destructive'>Failed to load data</p>
+        <p className='text-sm text-destructive'>{t('data-failed')}</p>
       </div>
     );
   }
@@ -246,24 +254,20 @@ export function LazyList<T>({
   delay?: number;
 }) {
   const { setLoading } = useLazyLoading(loadingKey);
-  const [visibleItems, setVisibleItems] = useState<T[]>([]);
+  const [displayedItems, setDisplayedItems] = useState<T[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const t = useTranslations('loading');
 
   useEffect(() => {
     setLoading(true);
-    setVisibleItems([]);
+    setDisplayedItems([]);
     setCurrentIndex(0);
 
     const loadChunk = () => {
-      const chunk = items.slice(currentIndex, currentIndex + chunkSize);
-      setVisibleItems((prev) => [...prev, ...chunk]);
+      const nextChunk = items.slice(currentIndex, currentIndex + chunkSize);
+      setDisplayedItems((prev) => [...prev, ...nextChunk]);
       setCurrentIndex((prev) => prev + chunkSize);
-
-      if (currentIndex + chunkSize < items.length) {
-        setTimeout(loadChunk, delay);
-      } else {
-        setLoading(false);
-      }
+      setLoading(false);
     };
 
     if (items.length > 0) {
@@ -273,19 +277,19 @@ export function LazyList<T>({
     }
   }, [items, chunkSize, delay, setLoading, currentIndex]);
 
-  if (visibleItems.length === 0) {
+  if (displayedItems.length === 0) {
     return <>{fallback}</>;
   }
 
   return (
-    <div className='space-y-2'>
-      {visibleItems.map((item, index) => renderItem(item, index))}
+    <>
+      {displayedItems.map((item, index) => renderItem(item, index))}
       {currentIndex < items.length && (
-        <div className='flex justify-center py-4'>
-          <InlineLoading message='Loading more items...' />
+        <div className='mt-4'>
+          <InlineLoading message={t('more-items')} />
         </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -303,51 +307,36 @@ export function LazyModal<T extends Record<string, unknown> = Record<string, unk
   loadingKey?: string;
   props?: T;
 }) {
-  const { setLoading } = useLazyLoading(loadingKey);
-  const [LazyModalComponent, setLazyModalComponent] = useState<ComponentType<T> | null>(null);
-
-  useEffect(() => {
-    if (isOpen && !LazyModalComponent) {
-      setLoading(true);
-      component()
-        .then((module) => {
-          setLazyModalComponent(() => module.default);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error('Failed to load modal component:', error);
-          setLoading(false);
-        });
-    }
-  }, [isOpen, component, LazyModalComponent, setLoading]);
-
   if (!isOpen) return null;
+
+  const LazyComponent = lazy(component);
 
   return (
     <LazyLoadingWrapper loadingKey={loadingKey}>
-      {LazyModalComponent ? <LazyModalComponent {...(props as T)} /> : fallback}
+      <Suspense fallback={fallback}>
+        <LazyComponent {...(props as T)} />
+      </Suspense>
     </LazyLoadingWrapper>
   );
 }
 
-// Utility function to create lazy components
+// Factory functions for creating lazy components
 export function createLazyComponent<T extends Record<string, unknown> = Record<string, unknown>>(
   importFn: () => Promise<{ default: ComponentType<T> }>,
   fallback?: ReactNode,
   loadingKey?: string
 ) {
   return function LazyComponentWrapper(props: T) {
-    return <LazyComponent<T> component={importFn} fallback={fallback} loadingKey={loadingKey} props={props} />;
+    return <LazyComponent component={importFn} fallback={fallback} loadingKey={loadingKey} props={props} />;
   };
 }
 
-// Utility function to create lazy routes
 export function createLazyRoute<T extends Record<string, unknown> = Record<string, unknown>>(
   importFn: () => Promise<{ default: ComponentType<T> }>,
   fallback?: ReactNode,
   loadingKey?: string
 ) {
   return function LazyRouteWrapper(props: T) {
-    return <LazyRoute<T> component={importFn} fallback={fallback} loadingKey={loadingKey} props={props} />;
+    return <LazyRoute component={importFn} fallback={fallback} loadingKey={loadingKey} props={props} />;
   };
 }

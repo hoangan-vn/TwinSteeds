@@ -30,15 +30,19 @@ export default async function NotFoundPage({ params }: { params?: Promise<Locale
             <Button asChild>
               <Link href='/'>{t('action')}</Link>
             </Button>
-            <BackButton>Go Back</BackButton>
+            <BackButton>{t('go-back')}</BackButton>
           </div>
 
           {/* Additional Info */}
           <div className='text-sm text-muted-foreground'>
-            <p>Error Code: 404</p>
-            <p>Locale: {locale}</p>
-            <p>Route: /not-found</p>
-            <p>Params: {params ? 'Available' : 'Not available'}</p>
+            <p>{t('debug.error-code')}</p>
+            <p>
+              {t('debug.locale')}: {locale}
+            </p>
+            <p>{t('debug.route')}: /not-found</p>
+            <p>
+              {t('debug.params')}: {params ? t('debug.available') : t('debug.not-available')}
+            </p>
           </div>
         </div>
       </div>

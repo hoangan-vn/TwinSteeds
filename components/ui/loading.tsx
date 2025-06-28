@@ -54,7 +54,7 @@ export const ProgressBar = ({ progress, className }: { progress: number; classNa
 );
 
 // Full screen loading
-export const FullScreenLoading = ({ message = 'Loading...', className }: { message?: string; className?: string }) => (
+export const FullScreenLoading = ({ message, className }: { message?: string; className?: string }) => (
   <div
     className={cn('fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm', className)}
   >
@@ -66,7 +66,7 @@ export const FullScreenLoading = ({ message = 'Loading...', className }: { messa
 );
 
 // Inline loading
-export const InlineLoading = ({ message = 'Loading...', className }: { message?: string; className?: string }) => (
+export const InlineLoading = ({ message, className }: { message?: string; className?: string }) => (
   <div className={cn('flex items-center space-x-2', className)}>
     <Spinner size='sm' />
     {message && <span className='text-sm text-muted-foreground'>{message}</span>}
@@ -85,7 +85,7 @@ export const ButtonLoading = ({ size = 'md', className }: { size?: 'sm' | 'md' |
 };
 
 // Page loading
-export const PageLoading = ({ message = 'Loading page...', className }: { message?: string; className?: string }) => (
+export const PageLoading = ({ message, className }: { message?: string; className?: string }) => (
   <div className={cn('min-h-[400px] flex items-center justify-center', className)}>
     <div className='flex flex-col items-center space-y-4'>
       <Spinner size='lg' />
