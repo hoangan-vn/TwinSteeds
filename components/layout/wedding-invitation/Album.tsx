@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React, { useState, useRef, useEffect } from 'react';
+import { cn } from '@/lib';
 
 const images = [
   '/images/slides/1Q8A9144A.jpg',
@@ -21,12 +22,23 @@ const images = [
   '/images/slides/1Q8A9255.jpg'
 ];
 
+interface AlbumProps {
+  mainImageWidth?: string;
+  thumbnailsWidth?: string;
+  className?: string;
+}
+
 // Loading Skeleton Component
-function AlbumSkeleton() {
+function AlbumSkeleton({ mainImageWidth }: AlbumProps) {
   return (
     <div className='w-full flex flex-col items-center'>
       {/* Main image skeleton */}
-      <div className='relative w-full max-w-xl h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-gray-200 border-2 border-gray-300'>
+      <div
+        className={cn(
+          'relative w-full h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-gray-200 border-2 border-gray-300',
+          mainImageWidth || 'max-w-xl'
+        )}
+      >
         <div className='absolute inset-0 flex items-center justify-center'>
           <div className='animate-pulse bg-gray-300 w-full h-full rounded-lg'></div>
         </div>
@@ -36,7 +48,7 @@ function AlbumSkeleton() {
       </div>
 
       {/* Thumbnails skeleton */}
-      <div className='flex gap-2 mt-4 overflow-x-auto max-w-xl w-full pb-2'>
+      <div className='flex gap-2 mt-4 overflow-x-auto max-w-2xl w-full pb-2'>
         {Array.from({ length: 8 }).map((_, idx) => (
           <div key={idx} className='w-20 h-16 flex-shrink-0 rounded-md bg-gray-200 animate-pulse'></div>
         ))}
@@ -45,7 +57,7 @@ function AlbumSkeleton() {
   );
 }
 
-export function Album() {
+export function Album({ mainImageWidth, thumbnailsWidth, className }: AlbumProps) {
   const [current, setCurrent] = useState(0);
   const [prevCurrent, setPrevCurrent] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -93,6 +105,7 @@ export function Album() {
         img.src = images[index];
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current, loadedImages]);
 
   const prev = () => setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -100,13 +113,18 @@ export function Album() {
 
   // Show skeleton while loading
   if (isLoading) {
-    return <AlbumSkeleton />;
+    return <AlbumSkeleton mainImageWidth={mainImageWidth} thumbnailsWidth={thumbnailsWidth} />;
   }
 
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className={cn('w-full flex flex-col items-center', className)}>
       {/* Main image */}
-      <div className='relative w-full max-w-xl h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200'>
+      <div
+        className={cn(
+          'relative w-full h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200',
+          mainImageWidth || 'max-w-xl'
+        )}
+      >
         <button
           className='absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 hover:bg-white transition-colors shadow-md'
           onClick={prev}
@@ -143,7 +161,7 @@ export function Album() {
       </div>
 
       {/* Thumbnails */}
-      <div className='flex gap-2 mt-4 overflow-x-auto max-w-xl w-full pb-2' ref={thumbContainerRef}>
+      <div className='flex gap-2 mt-4 overflow-x-auto max-w-2xl w-full pb-2' ref={thumbContainerRef}>
         {images.map((img, idx) => (
           <button
             key={img}

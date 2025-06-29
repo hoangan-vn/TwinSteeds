@@ -8,7 +8,7 @@ export function Footer() {
   const t = useTranslations('footer');
 
   return (
-    <section className={`w-full h-[700px] relative overflow-hidden`}>
+    <section className={`w-full h-screen relative overflow-hidden`}>
       {/* Background Image */}
       <div className='absolute inset-0'>
         <Image src='/images/1Q8A9735.jpg' alt='' layout='fill' objectFit='cover' className='absolute inset-0' />

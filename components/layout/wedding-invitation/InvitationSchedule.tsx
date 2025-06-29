@@ -18,7 +18,7 @@ export async function InvitationSchedule() {
         ' flex flex-col items-center justify-center text-gray-400 text-lg md:text-xl lg:text-2xl py-5'
       )}
     >
-      <div className='w-full flex flex-col items-center justify-center mb-12'>
+      <div className='w-full flex flex-col items-center justify-center mb-8'>
         <h2 className='text-3xl'>{uppercase(t('title'))}</h2>
         <p>{uppercase(t('heading-1'))}</p>
         <div className='w-full flex justify-center items-center py-6'>

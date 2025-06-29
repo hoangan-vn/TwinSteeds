@@ -42,13 +42,13 @@
         "year": "2025",
         "lunar-date": "Corresponding to the 19th of June (Quy Mui) Lunar Calendar (At Ty)",
         "days": [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat"
         ],
         "months": [
             "January",
@@ -115,7 +115,7 @@
         }
     },
     "invitation-form": {
-        "confirmation-text": "Please confirm your attendance before 01.07.2025 so we can prepare to welcome you in the most thoughtful way.",
+        "confirmation-text": "Please confirm your attendance before 05.07.2025 so we can prepare to welcome you in the most thoughtful way.",
         "sincerely": "Sincerely!",
         "name-placeholder": "Your name",
         "message-placeholder": "Send a message to the bride and groom",
