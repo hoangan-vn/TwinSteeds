@@ -40,14 +40,14 @@ export function InvitationForm() {
   };
 
   return (
-    <div className='w-full flex justify-center items-center'>
+    <div className='w-full flex justify-center items-center px-4 sm:px-0'>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='w-full max-w-md bg-white/80 rounded-2xl shadow-md border border-gray-200 px-4 py-6 sm:px-8 sm:py-8 flex flex-col gap-4'
+        className='w-full max-w-md bg-white/80 rounded-2xl shadow-md border border-gray-200 px-4 py-6 sm:px-8 sm:py-8 flex flex-col gap-3 sm:gap-4'
         style={{ fontFamily: 'serif' }}
       >
         <div className='text-center mb-2'>
-          <div className='text-[15px] sm:text-base text-gray-700 leading-snug'>
+          <div className='text-sm sm:text-[15px] md:text-base text-gray-700 leading-snug'>
             {t('confirmation-text')}
             <br />
             <b>{t('sincerely')}</b>
@@ -56,16 +56,16 @@ export function InvitationForm() {
         <Input
           placeholder={t('name-placeholder')}
           {...register('name')}
-          className='w-full rounded-full border border-gray-300 focus:border-gray-400 bg-transparent px-4 py-2 text-base placeholder:text-gray-400'
+          className='w-full rounded-full border border-gray-300 focus:border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base placeholder:text-gray-400'
         />
         <textarea
           placeholder={t('message-placeholder')}
           {...register('message')}
           rows={3}
-          className='w-full rounded-2xl border border-gray-300 focus:border-gray-400 bg-transparent px-4 py-2 text-base placeholder:text-gray-400 resize-none'
+          className='w-full rounded-2xl border border-gray-300 focus:border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base placeholder:text-gray-400 resize-none'
         />
         <Select onValueChange={(value) => setValue('attendance', value)}>
-          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-4 py-2 text-base'>
+          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base'>
             <SelectValue placeholder={t('attendance-placeholder')} />
           </SelectTrigger>
           <SelectContent>
@@ -74,7 +74,7 @@ export function InvitationForm() {
           </SelectContent>
         </Select>
         <Select onValueChange={(value) => setValue('companion', value)}>
-          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-4 py-2 text-base'>
+          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base'>
             <SelectValue placeholder={t('companion-placeholder')} />
           </SelectTrigger>
           <SelectContent>
@@ -84,7 +84,7 @@ export function InvitationForm() {
           </SelectContent>
         </Select>
         <Select onValueChange={(value) => setValue('guestType', value)}>
-          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-4 py-2 text-base'>
+          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base'>
             <SelectValue placeholder={t('guest-type-placeholder')} />
           </SelectTrigger>
           <SelectContent>
@@ -95,7 +95,7 @@ export function InvitationForm() {
         </Select>
         <Button
           type='submit'
-          className='w-full rounded-full border border-gray-400 bg-white text-gray-700 font-semibold text-lg py-2 mt-2 tracking-wide hover:bg-gray-100 transition-all shadow-none'
+          className='w-full rounded-full border border-gray-400 bg-white text-gray-700 font-semibold text-base sm:text-lg py-2 mt-2 tracking-wide hover:bg-gray-100 transition-all shadow-none'
         >
           {t('submit-button')}
         </Button>

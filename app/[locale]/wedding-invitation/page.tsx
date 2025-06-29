@@ -1,7 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
-import { Layout } from '@/components/layout/Layout';
-import { Banner } from '@/components/layout/wedding-invitation/Banner';
+import { Banner } from '@/components/layout/wedding-invitation';
 import {
   Album,
   InvitationForm,
@@ -35,11 +34,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const t = await getTranslations('wedding-invitation');
 
   return (
-    <Layout
-      showBanner
-      banner={<Banner title={t('title')} invitation={t('invitation')} timeline={t('timeline')} date={t('date')} />}
-    >
-      <div className='container mx-auto px-4 py-8 space-y-8'>
+    // px-4 py-8
+    <div>
+      <div className='container mx-auto space-y-8'>
+        <Banner title={t('title')} invitation={t('invitation')} timeline={t('timeline')} date={t('date')} />
         <InvitationHeader />
         <InvitationSchedule />
         <InvitationLocated />
@@ -49,6 +47,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Footer />
       </div>
       <PlayFloatingButton />
-    </Layout>
+    </div>
   );
 }

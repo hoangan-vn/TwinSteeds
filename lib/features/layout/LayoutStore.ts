@@ -10,6 +10,9 @@ export interface LayoutState extends BaseState {
   isHeaderVisible: boolean;
   isHeaderSticky: boolean;
   scrollY: number;
+  isMobile: boolean;
+  isTablet: boolean;
+  isDesktop: boolean;
 }
 
 export interface LayoutActions extends BaseActions {
@@ -19,6 +22,7 @@ export interface LayoutActions extends BaseActions {
   setHeaderSticky: (sticky: boolean) => void;
   setScrollY: (scrollY: number) => void;
   updateAvailableHeight: () => void;
+  setDeviceType: (isMobile: boolean, isTablet: boolean, isDesktop: boolean) => void;
   reset: () => void;
 }
 
@@ -32,6 +36,9 @@ const initialState: LayoutState = {
   isHeaderVisible: true,
   isHeaderSticky: false,
   scrollY: 0,
+  isMobile: false,
+  isTablet: false,
+  isDesktop: true,
   isLoading: false,
   error: null
 };
@@ -45,18 +52,28 @@ export const useLayoutStore = create<LayoutStore>()(
         set({ headerHeight: height }, false, 'layout/setHeaderHeight');
         // Auto-update available height when header height changes
         const { viewportHeight } = get();
-        set({ availableHeight: viewportHeight - height }, false, 'layout/updateAvailableHeight');
+        const newAvailableHeight = Math.max(0, viewportHeight - height);
+        set({ availableHeight: newAvailableHeight }, false, 'layout/updateAvailableHeight');
       },
 
       setViewportSize: (width: number, height: number) => {
         set({ viewportWidth: width, viewportHeight: height }, false, 'layout/setViewportSize');
         // Auto-update available height when viewport changes
         const { headerHeight } = get();
-        set({ availableHeight: height - headerHeight }, false, 'layout/updateAvailableHeight');
+        const newAvailableHeight = Math.max(0, height - headerHeight);
+        set({ availableHeight: newAvailableHeight }, false, 'layout/updateAvailableHeight');
       },
 
       setHeaderVisible: (visible: boolean) => {
         set({ isHeaderVisible: visible }, false, 'layout/setHeaderVisible');
+        // Nếu header ẩn, availableHeight sẽ bằng viewportHeight
+        if (!visible) {
+          const { viewportHeight } = get();
+          set({ availableHeight: viewportHeight }, false, 'layout/updateAvailableHeight');
+        } else {
+          // Nếu header hiện, tính toán lại availableHeight
+          get().updateAvailableHeight();
+        }
       },
 
       setHeaderSticky: (sticky: boolean) => {
@@ -68,8 +85,15 @@ export const useLayoutStore = create<LayoutStore>()(
       },
 
       updateAvailableHeight: () => {
-        const { viewportHeight, headerHeight } = get();
-        set({ availableHeight: viewportHeight - headerHeight }, false, 'layout/updateAvailableHeight');
+        const { viewportHeight, headerHeight, isHeaderVisible } = get();
+        // Nếu header ẩn, availableHeight = viewportHeight
+        // Nếu header hiện, availableHeight = viewportHeight - headerHeight
+        const newAvailableHeight = isHeaderVisible ? Math.max(0, viewportHeight - headerHeight) : viewportHeight;
+        set({ availableHeight: newAvailableHeight }, false, 'layout/updateAvailableHeight');
+      },
+
+      setDeviceType: (isMobile: boolean, isTablet: boolean, isDesktop: boolean) => {
+        set({ isMobile, isTablet, isDesktop }, false, 'layout/setDeviceType');
       },
 
       setLoading: (isLoading: boolean) => set({ isLoading }, false, 'layout/setLoading'),
