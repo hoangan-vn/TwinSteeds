@@ -35,7 +35,7 @@ function AlbumSkeleton({ mainImageWidth }: AlbumProps) {
       {/* Main image skeleton */}
       <div
         className={cn(
-          'relative w-full h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-gray-200 border-2 border-gray-300',
+          'relative w-full h-[300px] sm:h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-gray-200 border-2 border-gray-300',
           mainImageWidth || 'max-w-xl'
         )}
       >
@@ -43,14 +43,14 @@ function AlbumSkeleton({ mainImageWidth }: AlbumProps) {
           <div className='animate-pulse bg-gray-300 w-full h-full rounded-lg'></div>
         </div>
         <div className='absolute inset-0 flex items-center justify-center'>
-          <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-primary'></div>
+          <div className='animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-b-2 border-primary'></div>
         </div>
       </div>
 
       {/* Thumbnails skeleton */}
-      <div className='flex gap-2 mt-4 overflow-x-auto max-w-2xl w-full pb-2'>
+      <div className='flex gap-1.5 sm:gap-2 mt-3 sm:mt-4 overflow-x-auto max-w-2xl w-full pb-2 px-4 sm:px-8'>
         {Array.from({ length: 8 }).map((_, idx) => (
-          <div key={idx} className='w-20 h-16 flex-shrink-0 rounded-md bg-gray-200 animate-pulse'></div>
+          <div key={idx} className='w-16 h-12 sm:w-20 sm:h-16 flex-shrink-0 rounded-md bg-gray-200 animate-pulse'></div>
         ))}
       </div>
     </div>
@@ -121,16 +121,16 @@ export function Album({ mainImageWidth, thumbnailsWidth, className }: AlbumProps
       {/* Main image */}
       <div
         className={cn(
-          'relative w-full h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200',
+          'relative w-full h-[300px] sm:h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200',
           mainImageWidth || 'max-w-xl'
         )}
       >
         <button
-          className='absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 hover:bg-white transition-colors shadow-md'
+          className='absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1.5 sm:p-2 hover:bg-white transition-colors shadow-md'
           onClick={prev}
           aria-label='Previous'
         >
-          <span className='text-2xl'>&#8592;</span>
+          <span className='text-lg sm:text-2xl'>&#8592;</span>
         </button>
 
         <div className='relative w-full h-full'>
@@ -146,27 +146,30 @@ export function Album({ mainImageWidth, thumbnailsWidth, className }: AlbumProps
           {/* Loading overlay for current image */}
           {!loadedImages.has(current) && (
             <div className='absolute inset-0 flex items-center justify-center bg-gray-100'>
-              <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-primary'></div>
+              <div className='animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-primary'></div>
             </div>
           )}
         </div>
 
         <button
-          className='absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 hover:bg-white transition-colors shadow-md'
+          className='absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1.5 sm:p-2 hover:bg-white transition-colors shadow-md'
           onClick={next}
           aria-label='Next'
         >
-          <span className='text-2xl'>&#8594;</span>
+          <span className='text-lg sm:text-2xl'>&#8594;</span>
         </button>
       </div>
 
       {/* Thumbnails */}
-      <div className='flex gap-2 mt-4 overflow-x-auto max-w-2xl w-full pb-2' ref={thumbContainerRef}>
+      <div
+        className='flex gap-1.5 sm:gap-2 mt-3 sm:mt-4 overflow-x-auto max-w-2xl w-full pb-2 px-4 sm:px-8'
+        ref={thumbContainerRef}
+      >
         {images.map((img, idx) => (
           <button
             key={img}
             onClick={() => setCurrent(idx)}
-            className={`border-2 rounded-md overflow-hidden w-20 h-16 flex-shrink-0 transition-all hover:scale-105 relative ${
+            className={`border-2 rounded-md overflow-hidden w-16 h-12 sm:w-20 sm:h-16 flex-shrink-0 transition-all hover:scale-105 relative ${
               current === idx ? 'border-primary shadow-md' : 'border-transparent hover:border-gray-300'
             }`}
             aria-label={`Show image ${idx + 1}`}
@@ -185,7 +188,7 @@ export function Album({ mainImageWidth, thumbnailsWidth, className }: AlbumProps
             {/* Loading overlay for thumbnails */}
             {!loadedImages.has(idx) && (
               <div className='absolute inset-0 flex items-center justify-center bg-gray-200'>
-                <div className='animate-spin rounded-full h-4 w-4 border-b-2 border-primary'></div>
+                <div className='animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-primary'></div>
               </div>
             )}
           </button>
