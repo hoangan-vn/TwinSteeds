@@ -133,6 +133,7 @@
         "guest-type-groom": "Nhà trai",
         "guest-type-both": "Cả hai",
         "submit-button": "GỬI LỜI NHẮN & XÁC NHẬN",
+        "loading-text": "Đang gửi...",
         "success-toast": "Gửi xác nhận thành công!",
         "success-description": "Cảm ơn bạn đã xác nhận tham dự.",
         "error-toast": "Có lỗi xảy ra",
