@@ -117,7 +117,7 @@ export function Album({ mainImageWidth, thumbnailsWidth, className }: AlbumProps
   }
 
   return (
-    <div className={cn('w-full flex flex-col items-center', className)}>
+    <div className={cn('w-full flex flex-col items-center py-4 sm:py-6', className)}>
       {/* Main image */}
       <div
         className={cn(
