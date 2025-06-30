@@ -74,18 +74,18 @@ export function InvitationForm() {
         <Input
           placeholder={t('name-placeholder')}
           {...register('name')}
-          className='w-full rounded-full border border-gray-300 focus:border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base placeholder:text-gray-400'
+          className='w-full rounded-full border border-gray-400 focus:border-gray-500 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base placeholder:text-gray-400 text-gray-900'
           disabled={isLoading}
         />
         <textarea
           placeholder={t('message-placeholder')}
           {...register('message')}
           rows={3}
-          className='w-full rounded-2xl border border-gray-300 focus:border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base placeholder:text-gray-400 resize-none disabled:opacity-50'
+          className='w-full rounded-2xl border border-gray-400 focus:border-gray-500 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base placeholder:text-gray-400 text-gray-900 resize-none disabled:opacity-50'
           disabled={isLoading}
         />
         <Select onValueChange={(value) => setValue('attendance', value)} disabled={isLoading}>
-          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base disabled:opacity-50'>
+          <SelectTrigger className='w-full rounded-full border border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base disabled:opacity-50 text-gray-900'>
             <SelectValue placeholder={t('attendance-placeholder')} />
           </SelectTrigger>
           <SelectContent>
@@ -94,7 +94,7 @@ export function InvitationForm() {
           </SelectContent>
         </Select>
         <Select onValueChange={(value) => setValue('companion', value)} disabled={isLoading}>
-          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base disabled:opacity-50'>
+          <SelectTrigger className='w-full rounded-full border border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base disabled:opacity-50 text-gray-900'>
             <SelectValue placeholder={t('companion-placeholder')} />
           </SelectTrigger>
           <SelectContent>
@@ -104,7 +104,7 @@ export function InvitationForm() {
           </SelectContent>
         </Select>
         <Select onValueChange={(value) => setValue('guestType', value)} disabled={isLoading}>
-          <SelectTrigger className='w-full rounded-full border border-gray-300 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base disabled:opacity-50'>
+          <SelectTrigger className='w-full rounded-full border border-gray-400 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base disabled:opacity-50 text-gray-900'>
             <SelectValue placeholder={t('guest-type-placeholder')} />
           </SelectTrigger>
           <SelectContent>
