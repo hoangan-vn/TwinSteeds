@@ -37,7 +37,14 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     // px-4 py-8
     <div>
       <div className='container mx-auto space-y-8'>
-        <Banner title={t('title')} invitation={t('invitation')} timeline={t('timeline')} date={t('date')} />
+        <Banner
+          title={t('title')}
+          invitation={t('invitation')}
+          timeline={t('timeline')}
+          date={t('date')}
+          firstTitle={t('first-title')}
+          secTitle={t('sec-title')}
+        />
         <InvitationHeader />
         <InvitationSchedule />
         <InvitationLocated />
