@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return (
     // px-4 py-8
     <div>
-      <div className='container mx-auto space-y-8'>
+      <div className='container space-y-8 bg-white'>
         <Banner
           title={t('title')}
           invitation={t('invitation')}
