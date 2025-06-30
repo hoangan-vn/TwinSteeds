@@ -133,6 +133,7 @@
         "guest-type-groom": "Groom's family",
         "guest-type-both": "Both families",
         "submit-button": "SEND MESSAGE & CONFIRM",
+        "loading-text": "Sending...",
         "success-toast": "Confirmation sent successfully!",
         "success-description": "Thank you for confirming your attendance.",
         "error-toast": "An error occurred",

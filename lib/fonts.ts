@@ -24,7 +24,9 @@ export const times = localFont({
     }
   ],
   variable: '--font-times',
-  display: 'swap'
+  display: 'swap',
+  preload: true,
+  fallback: ['Times New Roman', 'Times', 'serif']
 });
 
 export const dancingScript = localFont({
@@ -41,5 +43,7 @@ export const dancingScript = localFont({
     }
   ],
   variable: '--font-dancing-script',
-  display: 'swap'
+  display: 'swap',
+  preload: true,
+  fallback: ['cursive', 'serif']
 });
